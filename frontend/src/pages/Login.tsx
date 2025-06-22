@@ -11,7 +11,7 @@ export default function Login() {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:5085/auth/login", {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -22,7 +22,7 @@ export default function Login() {
       localStorage.setItem("token", data.token);
       navigate("/dashboard");
     } else {
-      const errorText = await res.text(); // Получим тело ошибки
+      const errorText = await res.text(); 
       setError(`Ошибка входа: ${res.status} — ${errorText}`);
       console.error("Ошибка при логине:", res.status, errorText);
     }
