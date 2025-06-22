@@ -1,0 +1,11 @@
+{
+  "services": [
+    {
+      "name": "frontend",
+      "build": {
+        "context": "frontend",
+        "dockerfilePath": "frontend/Dockerfile"
+      }
+    }
+  ]
+}
